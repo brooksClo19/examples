@@ -1,0 +1,28 @@
+#### How to use this file: https://help.github.com/en/github/creating-cloning-and-archiving-repositories/about-code-owners
+#### Note that individual or team ownership is interchangable.
+
+# These owners will be the default owners for everything in the repo. Unless a later match takes precedence,
+# @user1 and @user2 will be requested for review when someone opens a pull request.
+*       @ghe-user1 @ghe-user2
+
+# Order is important; the last matching pattern takes the most precedence. When someone opens a pull request that only
+# modifies JS files, only @user3 and not the global owner(s) will be requested for a review.
+*.js    @ghe-user3
+
+# You can also use email addresses if you prefer. They'll be used to look up users just like we do for commit author
+# emails.
+*.go ghe-user4@nationbuilder.com
+
+# In this example, @3dna/ghe-team1 owns any files in the build/logs directory at the root of the repository and any of its
+# subdirectories.
+/build/logs/ @3dna/ghe-team1
+
+# The `docs/*` pattern will match files like `docs/getting-started.md` but not further nested files like
+# `docs/build-app/troubleshooting.md`.
+docs/*  ghe-user6@nationbuilder.com
+
+# In this example, @3dna/ghe-team2 owns any file in an apps directory anywhere in your repository.
+apps/ @3dna/ghe-team2
+
+# In this example, @ghe-user8 owns any file in the `/docs` directory in the root of your repository.
+/docs/ @ghe-user8
